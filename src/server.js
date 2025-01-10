@@ -18,7 +18,10 @@ const corsOptions = {
       'http://localhost:3000',
       'http://localhost:5174',
       'http://127.0.0.1:5173',
-      'http://127.0.0.1:3000'
+      'http://127.0.0.1:3000',
+      'https://mainproject-tanishfencer.vercel.app',
+      'https://mainproject-git-main-tanishfencer.vercel.app',
+      'https://mainproject-tanishfencer.vercel.app'
     ];
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
