@@ -10,32 +10,8 @@ const app = express();
 // Basic middleware
 app.use(express.json());
 
-// Configure CORS
-const corsOptions = {
-  origin: function (origin, callback) {
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'http://localhost:3000',
-      'http://localhost:5174',
-      'http://127.0.0.1:5173',
-      'http://127.0.0.1:3000',
-      'https://mainproject-tanishfencer.vercel.app',
-      'https://mainproject-git-main-tanishfencer.vercel.app',
-      'https://mainproject-tanishfencer.vercel.app'
-    ];
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      console.log('Blocked by CORS:', origin);
-      callback(null, false);
-    }
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
-};
-
-app.use(cors(corsOptions));
+// Configure CORS - Allow all origins temporarily for testing
+app.use(cors());
 
 // Request logging
 app.use((req, res, next) => {
@@ -55,6 +31,11 @@ app.get('/api/auth/verify/test', (req, res) => {
     success: true,
     message: 'Test verification endpoint working' 
   });
+});
+
+// Test endpoint
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Backend is working!' });
 });
 
 // Routes
