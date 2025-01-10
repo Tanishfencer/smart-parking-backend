@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Booking = require('../models/booking');
+const Booking = require('../models/booking.model');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
